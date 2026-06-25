@@ -98,7 +98,7 @@ https://v17.angular.io/guide/inputs-outputs
 @if (emailValidator) { <small class="form-text text-danger">El correo es requerido.</small> }
 
 20:27
-Para que carga desde el inicio y no se ha llamado ninguna pagina
+Para que cargue desde el inicio y no se ha llamado ninguna pagina
 {path: '', redirectTo: 'home', pathMatch: 'full'},
 
 
