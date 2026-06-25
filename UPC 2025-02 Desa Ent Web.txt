@@ -1,0 +1,111 @@
+Desarrollo para entorno web
+Jaiver Huiza
+pcisjhui@upc.edu.pe
+
+correo del AAD
+pciscroj@upc.edu.pe
+
+aws
+https://www.awsacademy.com/vforcesite/LMS_Login
+
+Mi web creada en aws
+--------------------
+https://staging.d2q9y7fvde85yw.amplifyapp.com/
+
+Comandos Iniciales con Angular:
+
+
+--Crear aplicacion:
+
+ng new DWEB
+
+
+--Crear componentes:
+
+--Home
+
+ng g c pages/home --skip-tests
+
+--Aboutus
+
+ng g c pages/aboutus --skip-tests
+
+--Contactus
+
+ng g c pages/contactus --skip-tests
+
+
+Para instalar cookies service
+------------------------------
+npm install ngx-cookie-service --sabe
+
+Para usar cookies
+-----------------
+https://github.com/cgrojasr/FriendsMundialistasWeb
+
+
+El endpoint que es para conectarme a la instancia de la BD de AWS
+-----------------------------------------------------------------
+sqlcmd -S dbweb.c4r146udcmig.us-east-1.rds.amazonaws.com,1433 -U admin -d <Enter_Database_Name> -N -C -Q "SELECT @@VERSION;"
+
+Pero solo se toma :
+dbweb.c4r146udcmig.us-east-1.rds.amazonaws.com
+
+
+
+Para cer video q puso el profesor aad
+------------------------------------
+https://upc.class.com/player/recording/c9c3d918-f0db-4cee-9a4a-3eefd028095f/505ca128-a371-59cd-a936-4b2e0dad4212
+
+
+poner e el tsconfig.jason
+"useDefineForClassFields": false,
+
+GitHub asesor
+https://github.com/cgrojasr
+
+Correo del asesor:
+pciscroj@upc.edu.pe
+
+En caso hay error en angular, ejecutar:
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted
+
+
+taller del 13 setiembre:
+https://getbootstrap.com/
+npm i bootstrap
+
+
+npm install bootstrap jquery @popperjs/core\
+
+npm install bootstrap jquery @popperjs/core
+npm install bootstrap jquery @popperjs/core
+
+"node_modules/bootstrap/dist/css/bootstrap.min.css",
+
+"node_modules/jquery/dist/jquery.min.js", "node_modules/@popperjs/core/dist/umd/popper.min.js", "node_modules/bootstrap/dist/js/bootstrap.min.js"
+
+El GitHub del asesor
+https://github.com/cgrojasr/MercadoFacilWeb
+https://github.com/cgrojasr/FriendsMundialistasWeb
+
+Repositorio para aprender angular
+https://v17.angular.io/guide/inputs-outputs
+
+
+
+20:23 es validar
+@if (emailValidator) { <small class="form-text text-danger">El correo es requerido.</small> }
+
+20:27
+Para que carga desde el inicio y no se ha llamado ninguna pagina
+{path: '', redirectTo: 'home', pathMatch: 'full'},
+
+
+-----------------------------------------------------------------------
+
+Este fuel mi prompt en CLAUDE para que me de el código.
+
+Asumamos que eres un experto en desarrollo para entorno web y angular. En base al archivo adjunto donde esta la prupuesta de desarrollo de un aplicativo para parqueo. Es decir la posibilidad de que alguien pueda encontrar parqueo de empresas que lo esten brindando. Se necesita que lo hagas usando angular. Creando todos los componentes necesarios
+
+-----------------------------------------------------------------------------------------------------------------------------------------

@@ -1,0 +1,191 @@
+USE <BD>
+GO
+EXEC dbo.sp_changedbowner @loginame = N'sa', @map = false
+GO 
+
+
+create database Biblioteca
+
+
+create table estudiante (
+IdLector int identity not null primary key,
+DNI char(8) not null,
+Nombre char(40) not null,
+Apellido char(40) not null,
+Direccion char(100) not null,
+Carrera char(80) not null,
+edad int
+)
+
+create table Libro (
+IdLibro int identity not null primary key,
+Titulo char(100) not null ,
+Editorial char(100) not null,
+Area char(100) not null
+)
+
+
+create table Autor (
+IdAutor int identity not null primary key,
+Nombre char(100) not null,
+Nacionalidad char(40) not null
+)
+
+
+create table Prestamo (
+IdLector int not null ,
+IdLibro int not null,
+Fechaprestamo date,
+FechaDevolucion date,
+FechaDevuelto date,
+constraint FK_lector foreign key (IdLector)
+		references Estudiante(IdLector),
+constraint FK_libro foreign key (IdLibro)
+		references Libro(Idlibro)
+)
+
+
+create table Libaut (
+IdAutor int not null,
+Idlibro int,
+constraint FK_autor foreign key (IdAutor)
+		references Autor(IdAutor),
+constraint FK_libro2 foreign key (IdLibro)
+		references Libro(Idlibro)
+)
+
+
+
+create database abc
+
+create database "def"
+
+create database "Nuevo Mundo"
+
+create database Biblioteca
+
+create table estudiante (
+IdLector int identity not null primary key,
+DNI char(8) not null,
+Nombre char(40) not null,
+Apellido char(40) not null,
+Direccion char(100) not null,
+Carrera char(80) not null,
+edad int
+)
+
+
+create table Libro (
+IdLibro int identity not null primary key,
+Titulo char(100) not null ,
+Editorial char(100) not null,
+Area char(100) not null
+)
+
+create table Autor (
+IdAutor int identity not null primary key,
+Nombre char(100) not null,
+Nacionalidad char(40) not null
+)
+
+create table Prestamo (
+IdLector int not null primary key,
+IdLibro int not null,
+Fechaprestamo date,
+FechaDevolucion date,
+FechaDevuelto date,
+constraint FK_lector foreign key (IdLector)
+		references Estudiante(IdLector),
+constraint FK_libro foreign key (IdLibro)
+		references Libro(Idlibro)
+)
+
+
+create table Libaut (
+IdAutor int not null,
+Idlibro int,
+constraint FK_autor foreign key (IdAutor)
+		references Autor(IdAutor),
+constraint FK_libro2 foreign key (IdLibro)
+		references Libro(Idlibro)
+)
+
+
+
+
+use BibliOteca -- base de datos a usar
+BULK INSERT Autor --tabla a insertar
+FROM 'C:\PC01\autor.csv' --Ruta del archivo CSV
+WITH
+( FIELDTERMINATOR = '|', --delimitador usado
+FORMAT='CSV',
+FIRSTROW=1 --se indica desde que fila comienza a insertar, si no tiene encabezado es desde 1
+)
+
+SELECT * FROM ESTUDIANTE
+
+select * from libro
+
+select * from autor
+
+select * from libaut
+
+use BibliOteca -- base de datos a usar
+BULK INSERT Prestamo --tabla a insertar
+FROM 'C:\PC01\prestamo.csv' --Ruta del archivo CSV
+WITH
+( FIELDTERMINATOR = '|', --delimitador usado
+FORMAT='CSV',
+FIRSTROW=1 --se indica desde que fila comienza a insertar, si no tiene encabezado es desde 1
+)
+
+select * from libaut
+
+select * from prestamo
+
+
+drop table prestamo
+
+create table Prestamo (
+IdLector int not null ,
+IdLibro int not null,
+Fechaprestamo date,
+FechaDevolucion date,
+FechaDevuelto date,
+constraint FK_lector foreign key (IdLector)
+		references Estudiante(IdLector),
+constraint FK_libro foreign key (IdLibro)
+		references Libro(Idlibro)
+)
+
+
+select * from prestamo
+
+
+select * from libro
+
+select e.nombre, e.apellido, e.dni, l.titulo, p.Fechaprestamo
+from estudiante e inner join prestamo p on e.IdLector = p.IdLector
+inner join libro l on p.IdLibro = l.IdLibro
+where e.apellido like 'Lo%'
+
+
+select e.nombre, e.apellido, e.dni, l.titulo, p.Fechaprestamo
+from estudiante e, prestamo p, libro l
+where e.IdLector = p.IdLector and p.IdLibro=l.IdLibro and l.titulo='Don Quijote de la Mancha II'
+
+
+insert into estudiante (
+dni,
+nombre,
+apellido,
+direccion,
+carrera,
+edad)
+values (
+'65678743',
+'Ernesto',
+'Rodriguez',
+'AV QATAR 234',
+'Informtica',
+18)

@@ -1,0 +1,270 @@
+sql server 2019
+DESKTOP-RNNTAN7
+
+
+
+clases PBI Service
+
+https://us06web.zoom.us/j/83971439802?pwd=VFY4RTVDMTN1YUloNER4MlI4L0NsZz09 
+ID de reunión: 839 7143 9802 Código de acceso: 092113
+
+====================================================================================
+cuenta de prueba para power bi que estoy usando para publicar presentacion o dashboard 
+La he obtenido el 29 de agosto 2021:
+lsamalvides@bettopbi.onmicrosoft.com
+Jeffrey01
+Chopin21
+
+======================================================================================
+
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+
+Centro de Administracion de Microsoft 365 - Para administrar Usuarios
+https://admin.microsoft.com/adminportal/home
+
+Azure Actice Directory - Para Administrar Usuarios
+https://portal.azure.com/#home
+
+Me ha creado Nombre de dominio:
+lkr4.onmicrosoft.com
+
+Entonces para entrar a mi servicio PBI SERVICE:
+jsamalvides@lkr4.onmicrosoft.com
+LoquitoDimela21
+Chopin21
+
+las otras cuentas de prueba su clve es : Chopin21
+Adele Vance AdeleV@lkr4.onmicrosoft.com
+Alex Wilber AlexW@lkr4.onmicrosoft.com
+ana samalvides apsamalvides@lkr4.onmicrosoft.com
+Diego Siciliani DiegoS@lkr4.onmicrosoft.com
+Grady Archie GradyA@lkr4.onmicrosoft.com
+Henrietta Mueller HenriettaM@lkr4.onmicrosoft.com
+Isaiah Langer IsaiahL@lkr4.onmicrosoft.com
+Jeffrey Samalvides
+Johanna Lorenz JohannaL@lkr4.onmicrosoft.com
+Joni Sherman JoniS@lkr4.onmicrosoft.com
+Lee Gu LeeG@lkr4.onmicrosoft.com
+Lidia Holloway LidiaH@lkr4.onmicrosoft.com
+Lynne Robbins LynneR@lkr4.onmicrosoft.com
+Megan Bowen MeganB@lkr4.onmicrosoft.com
+Miriam Graham MiriamG@lkr4.onmicrosoft.com
+Nestor Wilke NestorW@lkr4.onmicrosoft.com
+Patti Fernandez PattiF@lkr4.onmicrosoft.com
+Pradeep Gupta PradeepG@lkr4.onmicrosoft.com
+
+tambien he creado la cuenta
+apsamalvides@lkr4.onmicrosoft.com
+Chopin21
+
+-------------------------------------------------------------
+---------------------------------------------------------------------------------
+tambien tengo esta cuenta anterior
+
+Ahora ya pongo el nombre de la cuenta
+lsamalvides@bettopbi.onmicrosoft.com
+Jeffrey01
+Jeffrey01
+Chopin21
+
+========================================================0
+Para descargar Gateway
+Bajamos los 2 
+https://powerbi.microsoft.com/es-es/gateway/
+
+
+*****************************************************************************
+debido a que ya caducaron las cuentas he creado 2 cuentas
+para Tifon y jeffrey como desarrollador E5
+En esta direccion
+https://developer.microsoft.com/es-es/microsoft-365/dev-program
+
+
+tsamalvides@hotmail.com
+tsamalvides@1hp7gg.onmicrosoft.com
+https://www.office.com/?auth=2
+
+
+loquitodimela@hotmail.com
+loquitodimela@52qcf6.onmicrosoft.com
+
+*************************************************************************
+creada el 17/03/2022
+chsamalvides@sc7ck.onmicrosoft.com
+Chopin21
+
+-------------------------------------------------------------
+
+Nueva cuenta
+03/04/2022
+jasamalvides@6745tc.onmicrosoft.com
+Chopin21
+
+------------------------------------------------------
+
+
+
+
+
+CALCULANDO VENTAS DE ULTIMOS N MESES
+SANDIELLY ORTEGA
+
+Ultimos N Meses =
+VAR MaxFecha = CALCULATE(MAX(CALENDARIO[DATE]),
+	ALL(CALENDARIO))
+VAR MinFecha = DATE(YEAR(MaxFecha), Month(MaxFecha), -2, 1)
+VAR Resultado =
+	CALCULATE(
+		[VENTAS],
+		FILTER(
+			CALENDARIO,
+			CALENDARIO[DATE] >= MinFecha && CALENDARIO[DATE] <= MaxFecha
+		)
+)
+Return
+Resultado
+
+
+Gracias, excelente video. Yo tengo un metodo mas corto 
+R12M Global Company = 
+CALCULATE([SUM Global Company],
+    DATESINPERIOD(Calendario[Fecha],
+    LASTDATE(Calendario[Fecha]),-12,MONTH)). Me funsiona muchisimo para diferentes tableros. 
+
+Ahora bien, tengo un problema, puedo calcular el total del mes 1 al 12, pero necesito calcular el mes 13 al 24? no he podido resolver esto, alguna 
+idea master?
+
+
+-----------------------------------------------------------------------------
+
+
+
+Usuarios encontrados: 18
+Nombre
+
+
+https://www.youtube.com/watch?v=xuh1hnYaQ1E
+
+PROFESOR JORGE MENA
+LUCID CHART PARA HACER GRAFICOS
+
+ADDC
+ETL
+https://us06web.zoom.us/j/81093467798?pwd=K0ZtQnBhcU8zOW01MWlvOXBBOXp1QT09
+ ID de reunión: 810 9346 7798 
+Código de acceso: 401394
+
+
+OrigenDatos
+C:\Users\lsama\Desktop\Data\
+
+Agencia
+= Excel.Workbook(File.Contents("C:\Users\lsama\Desktop\Data\Complementario\Complementario.xlsx"), null, true)
+CategoriaAbierto
+= Excel.Workbook(File.Contents("C:\Users\lsama\Desktop\Data\Complementario\Complementario.xlsx"), null, true)
+Item
+= Excel.Workbook(File.Contents("C:\Users\lsama\Desktop\Data\Complementario\Complementario.xlsx"), null, true)
+
+= Folder.Files("C:\Users\lsama\Desktop\Data\Gastos")
+
+= Folder.Files("C:\Users\lsama\Desktop\Data\Tickets")
+
+
+
+
+
+Valor Rubro = 
+VAR Rubro =
+    SELECTEDVALUE ( Plantilla_EERR[CONCEPTO] )
+VAR Inmobiliario =
+    CALCULATE ( [Valores_Suma],   Combinados[Cod_EERR] = "1" ) 
+VAR Venta_de_servicios =
+    CALCULATE ( [Valores_Suma],   Combinados[Cod_EERR] = "2" )
+VAR Inmuebles =
+    CALCULATE ( [Valores_Suma],   Combinados[Cod_EERR] = "3" ) 
+VAR Costo_de_servicios =
+    CALCULATE ( [Valores_Suma],   Combinados[Cod_EERR] = "4" )
+
+VAR Utilidad_bruta = Inmobiliario + Venta_de_servicios + Inmuebles + Costo_de_servicios
+
+VAR Gastos_administrativos =
+    CALCULATE ( [Valores_Suma],   Combinados[Cod_EERR] = "6" ) 
+VAR Gasto_de_ventas =
+    CALCULATE ( [Valores_Suma],   Combinados[Cod_EERR] = "7" )
+
+VAR Resultado_operativo = Utilidad_bruta + Gastos_administrativos + Gasto_de_ventas
+
+VAR Gastos_financieros =
+    CALCULATE ( [Valores_Suma],   Combinados[Cod_EERR] = "8" )
+VAR Ingresos_diversos =
+    CALCULATE ( [Valores_Suma],   Combinados[Cod_EERR] = "9" )
+VAR Ingresos_financieros =
+    CALCULATE ( [Valores_Suma],   Combinados[Cod_EERR] = "10" )
+VAR Diferencia_de_cambio_neta =
+    CALCULATE ( [Valores_Suma],   Combinados[Cod_EERR] = "11" )
+
+
+
+
+
+ 
+VAR TotalGAstos = GastosAdmon + GastosVenta
+VAR U_Operativa = Utilidad_Bruta - GastosAdmon - GastosVenta
+VAR Margen_operativo =
+    DIVIDE ( U_Operativa, Ingresos )
+VAR IngresosNoOperacionales =
+    CALCULATE ( [Valor],  BD[GRUPO] = "42" ) 
+VAR GastosNoOperacionales =
+    CALCULATE ( [Valor],  BD[GRUPO] = "53" ) 
+VAR UtilidadAntesImpto = U_Operativa + IngresosNoOperacionales - GastosNoOperacionales
+
+RETURN
+    SWITCH (
+        Rubro,
+        "Ventas Netas", "",
+        "VENTAS", Ingresos,
+        "COSTO DE VENTA", Costos,
+        "UTILIDAD BRUTA", Utilidad_Bruta,
+        "GASTOS ADMON", GastosAdmon,
+        "GASTOS VENTAS", GastosVenta,
+        "TOTAL GASTOS", TotalGAstos,
+        "UTILIDAD OPERACIONAL", U_Operativa,
+        "% UTILIDAD OPERACIONAL", Margen_operativo,
+        "INGRESOS NO OPERACIONALES", IngresosNoOperacionales,
+        "GASTOS NO OPERACIONALES", GastosNoOperacionales,
+        "UTILIDAD ANTES IMPTO", UtilidadAntesImpto,
+     
+        BLANK ()
+    )
+
+
+
+A.V = Var Ventas = CALCULATE([Valor], BD[GRUPO]="41",ALL(BD[NOMBRE CUENTA]))
+      Var Resultado= DIVIDE([Valor Rubro],Ventas)
+        Return
+          Resultado 
+
+A.V Año Anterior = CALCULATE([A.V],SAMEPERIODLASTYEAR(Calendario[Date]))
+
+Valor Año Anterior = CALCULATE([Valor Rubro],SAMEPERIODLASTYEAR(Calendario[Date]))
+
+Variación % = DIVIDE([Valor Rubro],[Valor Año Anterior])-1
+
+Variación Absoluta = [Valor Rubro]-[Valor Año Anterior]
+
+
+
+funcion segmentada para chatgpt
+
+f(x) = {
+(x^2-4)/(x-2), si x < 2,
+ax^2 + bx + c, si 2 ≤ x < 3,
+2x - a + b, si 3≤x
+}
+
+
+f(x) = {
+expresión1, si a ≤ x ≤ b,
+expresión2, si b < x ≤ c
+}

@@ -1,0 +1,67 @@
+Arquitectura empresarial
+
+Profesor:
+Javier Lacherre
+pcsijlac@upc.edu.pe
+
+AAD : Ana Muedas
+pcisamue@upc.edu.pe
+
+GRUPO 4	CERRADO
+ALUMNO	CODIGO
+Marcello Pilares Vargas	u202323605
+Yoel Briceño Mallma	U20231C499
+Miguel de la cruz	U202517359
+SAMALVIDES MEZA LUIS ALBERTO	U202220122
+Ernesto Molina	U201403589
+
+
+Usaremos ARCHIMATE
+https://www.archimatetool.com/download/
+
+----------------------------------------------------------
+
+CICLO 2026-01
+DESARROLLO PARA ENTORNO WEB
+
+Profesor: Jaiver James Huiza Pereyra
+pcisjhui@upc.edu.pe
+
+Angular
+Proyecto de ejemplo de YouTube
+https://youtu.be/wkD8RQr9Evw?si=vZG2Ghu2TfA1JVNK
+
+Rossana Patricia Bernal Huaman
+Hever Maycol Davila Ponce
+Danny Izaguirre Alejos
+Luis Alberto Samalvides Meza
+Edson Armando Vigo Berrospi
+
+Instalación de angular
+----------------------
+Primero instalo nodejs:
+https://nodejs.org/en
+
+estando en vscode y abriendo terminal :
+npm i -g @angular/cli
+
+Comandos Iniciales con Angular:
+--Crear aplicacion:
+ng new DWEB
+
+--Crear componentes:
+--Home
+ng g c pages/home --skip-tests
+--Aboutus
+ng g c pages/aboutus --skip-tests
+--Contactus
+ng g c pages/contactus --skip-tests
+
+
+-----------------------------------------------------------------------
+
+
+
+
+
+

@@ -1,0 +1,256 @@
+dynamics contabilidad erp
+
+https://businesscentral.dynamics.com/1e9fe6f6-cc14-4ec0-a3b3-638295b7ab31/Production
+
+
+Usuario Dynamics
+nsamalvides@morada.pe
+S@p@rte21
+
+Busqueda de tablas :
+Catálogo de cuentas
+mov conta
+
+Longitud Cuenta
+Text.Length([NUMERO CUENTA])
+
+Elemento
+Text.Start([NUMERO CUENTA],1)
+
+Nivel 1
+if [Elemento]="1" or [Elemento]="2" or [Elemento]="3" then 
+"Activo" else 
+if [Elemento]="4" then "Pasivo" else 
+if [Elemento]="5" then "Patrimonio" else 
+if [Elemento]="6" then "Gastos" else 
+if [Elemento]="7" then "Ingresos" else ""
+
+Nivel 2 en DELANTE
+if [LONGITUD CUENTA]=1 then [Nombre Cuenta] else null
+
+
+Principal = switch(True(),
+    'Catálogo de cuentas'[Elemento] in {"1" , "2", "3", "4"} , "Activo",
+    'Catálogo de cuentas'[Elemento] in {"4"} , "Pasivo",
+    'Catálogo de cuentas'[Elemento] in {"5"} , "Patrimonio",
+    'Catálogo de cuentas'[Elemento] in {"6"} , "Gastos",
+    'Catálogo de cuentas'[Elemento] in {"7"} , "Ingresos"    
+)
+
+
+EEFF Morada
+https://app.powerbi.com/view?r=eyJrIjoiNDdkODIzZDgtNDNhZC00OTE3LTk5NzAtNTU0Y2Q0ZjM2OWM5IiwidCI6IjVkZWVkYTk2LWViMjQtNGI5Ny05NzE2LWI2ZWE1M2UxODAxYyJ9
+
+ANALISIS DE LIQUIDEZ
+--------------------
+
+Liquidez General = [Activo Circulante]/[Pasivo Circulante]
+Prueba Acida = [Activo Circulante (- inv)]/[Pasivo Circulante]
+
+
+Rotacion de cuentas por cobrar = CALCULATE([Total Activos],FILTER(data,data[NIVEL 4]="SERVICIOS POR COBRAR"))/
+						(CALCULATE([Total Ingresos],FILTER(data,data[NIVEL 2]="INGRESOS OPERATIVOS"))/360)
+
+Rotacion de Inventario = CALCULATE([Total Activos],FILTER(data,data[NIVEL 3]="BIENES DE CAMBIO O REALIZABLE"))/([Total Costos]/360)
+
+
+ANALISIS DE ENDEUDAMIENTO
+-------------------------
+Endeudamiento Patrimonial = [Total Pasivos]/[Total Patrimonio]
+Endeudamiento a Corto Plazo = CALCULATE([Total Pasivos],FILTER(data,data[NIVEL 2]="PASIVO CORRIENTE"))/[Total Patrimonio]
+Endeudamiento a Largo Plazo = CALCULATE([Total Pasivos],FILTER(data,data[NIVEL 2]="PASIVO NO CORRIENTE"))/[Total Patrimonio]
+Endeudamiento del Activo = [Total Pasivos]/[Total Activos]
+
+RENTABILIDAD
+------------
+Margen Bruto = ([Ventas]-[Total Costos])/[Ventas]
+Margen de Utilidad Neto = CALCULATE([Total Patrimonio],FILTER(data,data[NIVEL 5]="RESULTADOS DE LA GESTION"))/[Ventas]
+Rendimiento del Capital = CALCULATE([Total Patrimonio],FILTER(data,data[NIVEL 5]="RESULTADOS DE LA GESTION"))/
+					CALCULATE([Total Patrimonio],FILTER(data,data[NIVEL 4]="CAPITAL SOCIAL"))
+Rendimiento del Activo = CALCULATE([Total Patrimonio],FILTER(data,data[NIVEL 5]="RESULTADOS DE LA GESTION"))/[Total Activos]
+
+
+*********************************************************************************
+
+
+QUERY PARA VENTAS
+
+SELECT     
+    T1.DocEntry AS 'ID',    
+    T1.DocNum AS 'Folio', 
+    T1.ObjType AS 'Tipo Documento', 
+    CASE when T1.CANCELED = 'Y' then 'Cancelled' ELse 'Not Cancelled' END AS [Cancelada],
+    CASE when T1.DocStatus = 'C' then 'Closed' Else 'Open' end AS [DocStatus],
+    CASE T1.ObjType 
+        WHEN 13 THEN 'Factura' 
+        WHEN 14 THEN 'NC' 
+        END AS 'Tipo Documento', 
+    T1.Confirmed AS 'Corfirmada',
+    T1.TransId AS 'TransaccionID', 
+    T1.DocDate AS 'Fecha Creacion',
+    T0.ShipDate AS 'Fecha Detalle', 
+    T0.ItemCode AS 'productoID', 
+    T0.Dscription AS 'Producto', 
+    T0.Quantity AS 'Cantidad', 
+    T0.Price AS 'Precio', 
+    T0.Currency AS 'Moneda', 
+    T0.LineTotal AS 'Monto', 
+    T0.SlpCode AS 'VendedorID', 
+    T2.SlpName AS 'Vendedor', 
+    T4.ItmsGrpCod AS 'CategoriaID', 
+    T4.ItmsGrpNam AS 'Categoria', 
+    T5.FirmCode AS 'ProveedorID', 
+    T5.FirmName AS 'Proveedor', 
+    T1.CardCode AS 'clienteID', 
+    T1.CardName AS 'Cliente', 
+    T1.Address AS 'Direccion Cliente'
+FROM        
+    INV1 T0 INNER JOIN
+    OINV T1 ON T0.DocEntry = T1.DocEntry INNER JOIN
+    OSLP T2 ON T1.SlpCode = T2.SlpCode INNER JOIN
+    OITM T3 ON T0.ItemCode = T3.ItemCode INNER JOIN
+    OITB T4 ON T3.ItmsGrpCod = T4.ItmsGrpCod INNER JOIN
+    OMRC T5 ON T3.FirmCode = T5.FirmCode
+
+
+
+Query SQL tabla Compras
+
+SELECT
+T0.[DocNum] AS 'Pedido',
+T4.[Docnum] AS 'Factura', 
+T0.[DocDate] AS 'FechaDoc',
+T0.[DocDueDate] AS 'Fecha Vencimiento', 
+CASE when T0.CANCELED = 'Y' then 'Cancelada' else 'No cancelada' END as [Cancelada],
+T0.[SlpCode] AS 'AutorID', 
+T5.SlpName AS 'Analista',
+T1.[ItemCode] AS 'ItemID', 
+T1.[Dscription] AS 'Producto', 
+T7.ItmsGrpCod AS 'CategoriaID', 
+T7.ItmsGrpNam AS 'Categoria',
+T1.[Quantity] AS 'Cantidad pedida', 
+T1.Price AS 'Precio unitario',
+T1.LineTotal AS 'Monto total',
+T1.[OpenQty] AS 'Cantidad por recibir',
+T3.[DocNum] AS 'Doc Entrada', 
+T3.[DocDate] AS 'Fecha Entrada', 
+CASE T1.LineStatus
+    WHEN 'C' THEN 'Cerrado'
+    WHEN 'O' THEN 'Abierto'
+    END AS 'Estado de linea',
+T0.[CardCode] AS 'Cod Proveedor',
+T0.[CardName] AS 'Nombre Proveedor',
+T0.[Address] AS 'Direccion Proveedor',
+T4.[PeyMethod] AS 'Via de pago',
+T1.Currency AS 'Moneda'
+FROM OPOR T0
+INNER JOIN POR1 T1 ON T0.DocEntry = T1.DocEntry
+left outer join PDN1 T2 on T2.BaseEntry=T1.Docentry and T2.BaseLine = T1.LineNum
+Left outer JOIN OPDN T3 ON T2.DocEntry = T3.DocEntry
+left join OPCH T4 on T0.docentry=T4.docentry
+left join OSLP T5 ON T0.SlpCode = T5.SlpCode 
+left join OITM T6 ON T1.ItemCode = T6.ItemCode 
+left join OITB T7 ON T6.ItmsGrpCod = T7.ItmsGrpCod 
+
+QUERY PARA CLIENTES
+
+SELECT 
+T0.CardCode AS 'ClienteID',
+T0.CntctPrsn AS 'Nombre del Cliente',
+T0.CardName AS 'Razon Social',
+T0.Phone1 AS 'Telefono',
+T0.Address AS 'Direccion',
+T0.City AS 'Ciudad',
+T0.Country AS 'Pais',
+T0.Currency AS 'Moneda',
+T0.E_Mail AS 'email',
+T0.CreateDate AS 'Fecha de Registro',
+T0.ShipToDef AS 'Tipo de entrega',
+T0.Deleted AS 'Eliminado',
+T0.Priority AS 'Prioridad',
+T0.CreditLine AS 'Linea de credito',
+CASE T0.CmpPrivate 
+        WHEN 'C' THEN 'Compañia' 
+        WHEN 'G' THEN 'Gobierno'
+        WHEN 'I' THEN 'Particular'
+        END AS 'Tipo Empresa',
+CASE T0.CardType
+        WHEN 'C' THEN 'Cliente'
+        WHEN 'L' THEN 'Lead'
+        WHEN 'S' THEN 'Vendedor'
+        END AS 'Tipo Cliente'
+FROM 
+    OCRD T0
+
+Query SQL Tabla Empresa
+
+SELECT DISTINCT
+CompnyName AS 'Empresa'
+FROM AADM
+
+
+ADAPTADO PARA QRUBBER
+---------------------
+
+QUERY PARA VENTAS 
+   
+T1."DocEntry", T1."DocNum", T1."ObjType", T1."CANCELED", T1."DocStatus", T1."Confirmed", T1."TransId", T1."DocDate", T0."ShipDate", T0."ItemCode", T0."Dscription", T0."Quantity", T0."Price", T0."Currency", T0."LineTotal", T0."SlpCode", T2."SlpName", T4."ItmsGrpCod", T4."ItmsGrpNam", T5."FirmCode", T5."FirmName", T1."CardCode", T1."CardName", T1."Address"
+FROM        
+    INV1 T0 INNER JOIN
+    OINV T1 ON T0.DocEntry = T1.DocEntry INNER JOIN
+    OSLP T2 ON T1.SlpCode = T2.SlpCode INNER JOIN
+    OITM T3 ON T0.ItemCode = T3.ItemCode INNER JOIN
+    OITB T4 ON T3.ItmsGrpCod = T4.ItmsGrpCod INNER JOIN
+    OMRC T5 ON T3.FirmCode = T5.FirmCode
+
+
+
+Query SQL tabla Compras
+
+T0.[DocNum] AS 'Pedido',
+T4.[Docnum] AS 'Factura', 
+T0.[DocDate] AS 'FechaDoc',
+T0.[DocDueDate] AS 'Fecha Vencimiento', 
+CASE when T0.CANCELED = 'Y' then 'Cancelada' else 'No cancelada' END as [Cancelada],
+T0.[SlpCode] AS 'AutorID', 
+T5.SlpName AS 'Analista',
+T1.[ItemCode] AS 'ItemID', 
+T1.[Dscription] AS 'Producto', 
+T7.ItmsGrpCod AS 'CategoriaID', 
+T7.ItmsGrpNam AS 'Categoria',
+T1.[Quantity] AS 'Cantidad pedida', 
+T1.Price AS 'Precio unitario',
+T1.LineTotal AS 'Monto total',
+T1.[OpenQty] AS 'Cantidad por recibir',
+T3.[DocNum] AS 'Doc Entrada', 
+T3.[DocDate] AS 'Fecha Entrada', 
+CASE T1.LineStatus
+    WHEN 'C' THEN 'Cerrado'
+    WHEN 'O' THEN 'Abierto'
+    END AS 'Estado de linea',
+T0.[CardCode] AS 'Cod Proveedor',
+T0.[CardName] AS 'Nombre Proveedor',
+T0.[Address] AS 'Direccion Proveedor',
+T4.[PeyMethod] AS 'Via de pago',
+T1.Currency AS 'Moneda'
+FROM OPOR T0
+INNER JOIN POR1 T1 ON T0.DocEntry = T1.DocEntry
+left outer join PDN1 T2 on T2.BaseEntry=T1.Docentry and T2.BaseLine = T1.LineNum
+Left outer JOIN OPDN T3 ON T2.DocEntry = T3.DocEntry
+left join OPCH T4 on T0.docentry=T4.docentry
+left join OSLP T5 ON T0.SlpCode = T5.SlpCode 
+left join OITM T6 ON T1.ItemCode = T6.ItemCode 
+left join OITB T7 ON T6.ItmsGrpCod = T7.ItmsGrpCod 
+
+QUERY PARA CLIENTES
+
+T0."CardCode",T0."CntctPrsn",T0."CardName",T0."Phone1",T0."Address",T0."City",T0."Country",T0."Currency",T0."E_Mail",T0."CreateDate",T0."ShipToDef",T0."Deleted",T0."Priority",T0."CreditLine",T0."CmpPrivate",T0."CardType" 
+
+    OCRD T0
+
+
+Query SQL Tabla Empresa
+
+SELECT DISTINCT
+CompnyName AS 'Empresa'
+FROM AADM

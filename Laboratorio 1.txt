@@ -1,0 +1,345 @@
+USE master;
+GO
+
+CREATE DATABASE Sales ON
+(NAME = Sales_dat,
+    FILENAME = 'C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\DATA\saledat.mdf',
+    SIZE = 10,
+    MAXSIZE = 50,
+    FILEGROWTH = 5)
+LOG ON
+(NAME = Sales_log,
+    FILENAME = 'C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\DATA\salelog.ldf',
+    SIZE = 5 MB,
+    MAXSIZE = 25 MB,
+    FILEGROWTH = 5 MB);
+GO
+
+USE master;
+GO
+
+
+CREATE TABLE  Encargo
+(
+	pedID int not null,
+	proID int not null,
+	cantidad smallint not null,
+	descuento numeric(3,1),
+
+	constraint CK_cantidad_encargo_mayor_cero check
+	(
+		cantidad >0
+	),
+
+	constraint CK_descuento_no_negativo check
+	(
+		descuento>=0
+	),
+
+	constraint FK_encargo_pedido foreign key(pedID)
+		references Pedido(pedID)
+	,
+
+	constraint FK_encargo_producto foreign key(proID)
+		references Producto(proID)
+	,
+
+	constraint UQ_PedidoUnico unique
+		(pedID, proID)
+
+
+
+)
+
+CREATE TABLE  Encargo
+(
+	pedID int not null,
+	proID int not null,
+	cantidad smallint not null,
+	descuento numeric(3,1),
+
+	constraint CK_cantidad_encargo_mayor_cero check
+	(
+		cantidad >0
+	),
+
+	constraint CK_descuento_no_negativo check
+	(
+		descuento>=0
+	),
+
+	constraint FK_encargo_pedido foreign key(pedID)
+		references Pedido(pedID)
+	,
+
+	constraint FK_encargo_producto foreign key(proID)
+		references Producto(proID)
+	,
+
+	constraint UQ_PedidoUnico unique
+		(pedID, proID)
+
+
+
+)
+
+
+create table Pedido
+(
+	pedID int 
+ty(1,1) not null,
+	fecha smalldatetime ,
+	dni varchar(10) not null,
+
+	constraint PK_Pedido primary key
+	(
+		pedID ASC
+	),
+
+	constraint FK_pedido_cliente foreign key (dni)
+		references Cliente(dni)
+)
+
+
+------------------------------------------------------------
+
+-- 2 Creando la BD ClaseIBD
+
+if db_Id('ClaseIBD) IS NOT NULL
+BEGIN
+	USE MASTER
+	DROP DATABASE ClaseIBD
+END
+
+CREATE DATABASE ClaseIBD ON
+(NAME = ClaseIBD_dat,
+    FILENAME = 'C:\ClaseIBD\ClaseIBDdat.mdf',
+    SIZE = 10,
+    MAXSIZE = 50,
+    FILEGROWTH = 5)
+LOG ON
+(NAME = ClaseIBD_log,
+    FILENAME = 'C:\ClaseIBD\ClaseIBDlog.ldf',
+    SIZE = 10 MB,
+    MAXSIZE = 50 MB,
+    FILEGROWTH = 5 MB);
+GO
+
+-- 3 Usando la BD ClaseIBD
+use ClaseIBD
+GO
+
+
+-- 4 Creando la tabla ALUMNO
+
+create table ALUMNO
+(
+	id_alumn char(5) not null,
+	nom_alumn char(20) not null,
+	ape_alumn char(30) not null,
+	sex_alumn char(10),
+	tel_alumn char(9),
+	dir_alumn char(25), 
+
+	constraint PK_id_alumn primary key
+	(
+		id_alumn ASC
+	),
+
+)
+GO
+
+-- 5 Creando la Tabla CLIENTE
+
+create table CLIENTE
+(
+	id_cliente char(5) not null,
+	nom_cliente char(20) not null,
+	ape_cliente char(30) not null,
+	tel_cliente char(9),
+	dir_cliente char(25), 
+
+	constraint PK_id_cliente primary key
+	(
+		id_cliente ASC
+	),
+
+)
+GO
+
+-- 6 Creando la Tabla CUENTA
+
+create table CUENTA
+(
+	id_cuenta char(10) not null,
+	id_cliente char(5) ,
+	saldo int,
+
+	constraint PK_id_cuenta primary key
+	(
+		id_cuenta ASC
+	),
+
+	constraint CK_saldo_mayorigual_cero check
+	(
+		saldo >= 0
+	),
+
+	constraint FK_id_cliente foreign key (id_cliente)
+		references Cliente(id_cliente)
+)
+GO
+
+-- 7 Creando la Tabla PRODUCTO
+
+create table PRODUCTO
+(
+	ProductID int not null,
+	id_cliente char(5) ,
+	UnitPrice money,
+
+	constraint PK_ProductID primary key
+	(
+		ProductID ASC
+	),
+
+	constraint CK_UnitPrice2 check
+	(
+		UnitPrice > 0 and UnitPrice < 100
+	),
+
+)
+GO
+
+-- 8 Creando la Tabla PERSONA
+
+create table PERSONA
+(
+	id_pers char(6),
+	tipo_docu_pers char(2) ,
+	num_docu_pers char(11),
+	id_cuenta char(10),
+	ape_pat_pers char(20) constraint ap_pater Not Null,
+	ape_mate_pers char(20),
+	nom_pers char(25),
+	dir_pers char(40),
+	
+	constraint PK_pers PRIMARY KEY (id_pers),
+
+	constraint UN_nu_docu UNIQUE (num_docu_pers),
+
+	constraint FK_cuenta FOREIGN KEY (id_cuenta) REFERENCES CUENTA
+
+)
+GO
+
+-- 9 Agregando el campo sex_pers con char de 1
+
+ALTER TABLE PERSONA ADD sex_pers char(1)
+GO
+
+-- 10 Cambiar tamaño de columna sex_pers a 2
+
+ALTER TABLE persona ALTER COLUMN sex_pers char(2) NOT NULL
+GO
+
+
+-- 11 Agregar el campo est_civ_pers char de 1 y constraint est_civ_NOT NULL
+
+ALTER TABLE PERSONA ADD est_civ_pers char(1) constraint est_civ NOT NULL
+GO
+
+-- 12 Borrar la columna sex_pers de la tabla persona
+
+ALTER TABLE persona DROP COLUMN sex_pers
+GO
+
+-- 13 Cambiar el tamaño de columna ape_mate_pers a 25 y no acepte nulos
+
+ALTER TABLE persona ALTER COLUMN ape_mate_pers char(25) NOT NULL
+GO
+
+--14 Agregar a tabla CLIENTE el campo id_pers tipo char de 6
+
+ALTER TABLE CLIENTE ADD id_pers char(6)
+GO
+
+-- 15 En la tabla cliente agregar un Constraint con nombre fk_clien_per de tipo FOREIGN KEY del campo id_pers
+-- referenciando a la tabla persona
+
+ALTER TABLE cliente
+ADD CONSTRAINT fk_clien_per 
+FOREIGN KEY(id_pers)  REFERENCES persona(id_pers)
+GO
+
+-- 16 Eliminar el Constraint fk_clien_per de la tabla cliente
+
+ALTER TABLE cliente
+ DROP CONSTRAINT fk_clien_per
+GO
+
+-- 17 Crear la tabla EMPLEADOR
+
+create table EMPLEADOR
+(
+	id_empleador char(5) not null,
+	doc_empleador char(11) not null,
+	nom_empleador char(40),
+	dir_empleador char(30),
+	tel_alumn char(9),
+)
+GO
+
+
+-- 18 Crear un índice idx_doc_empl para la columna doc_empleador de la tabla empleador
+
+create index idx_doc_emp1 on EMPLEADOR(doc_empleador)
+GO
+
+-- 19 Borrar índice idx_doc_empl de la tabla empleador
+
+IF EXISTS (SELECT name FROM sys.indexes  
+            WHERE name = 'idx_doc_emp1')   
+    DROP INDEX idx_doc_emp1 ON EMPLEADOR   
+GO
+
+-- 20 Renombrar la tabla empleador a empleadores
+
+EXEC sp_rename 'empleador', 'empleadores'
+GO
+
+-- 21 Crear el usuario user_claseibd en la BD ClaseIBD
+
+-- Crea el login user_ClaseIBD with password '12345678'  
+CREATE LOGIN user_claseibd WITH PASSWORD = '12345678'  
+GO  
+
+Use ClaseIBD
+GO
+
+-- Abro la BD donde quiero poner al usuario
+-- Creates a database user for the login created above.  
+CREATE USER user_claseibd FOR LOGIN user_claseibd;  
+GO  
+
+-- 22 Asignar los permisos de SELECT de la tabla empleadores al usuario user_claseibd
+
+GRANT SELECT ON empleadores TO user_claseibd WITH GRANT OPTION
+GO
+
+
+-- 23. Asignar los permisos de INSERT y UPDATE sobre la columna nom_empleador de la tabla empleadores al usuario 
+user_claseibd
+
+GRANT INSERT, UPDATE(nom_empleador) ON empleadores TO user_claseibd WITH GRANT OPTION
+GO
+
+-- 24. Revocar los permisos de SELECT e INSERT de la tabla empleadores al usuario user_claseibd
+
+REVOKE SELECT, INSERT ON empleadores FROM user_claseibd CASCADE
+GO
+
+
+
+
+

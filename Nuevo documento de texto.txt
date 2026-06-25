@@ -1,0 +1,248 @@
+cuenta de prueba para power bi
+lsamalvides@bettopbi.onmicrosoft.com
+Jeffrey01
+
+pagina donde esta mi pagina de power bi publicada
+https://www.powerbi.com/view?r=eyJrIjoiYjI0YmNiYzYtOWNiYi00YmNmLWFjMTUtMWRmNzBlMWRhOWJiIiwidCI6Ijc4YjAyOGZkLTFhNGUtNDljOS05YjM5LTkxNDNlYjFhYjZlYSJ9
+
+operador90
+tickritm0253697
+
+
+cuenta para pacifico seguro vida ley
+pacifico63
+
+
+989155731
+miguel espinal
+repuesto llanta mazda cx3
+
+
+
+
+
+
+
+https://app.powerbi.com/links/eyAyfnvZWs?ctid=78b028fd-1a4e-49c9-9b39-9143eb1ab6ea&pbi_source=linkShare
+
+
+programa adulto mayor surco
+
+PARA REGSTRARSE EN ESSALUD POR LO DE LA VACUNA :
+https://essaludtecuida.essalud.gob.pe/login#/auth/login
+HASTA AHORITA SOLO MAYORES DE 80 AÑOS
+http://portal.essalud.gob.pe/
+
+=(VALOR(EXTRAE(C3;1;1))+VALOR(EXTRAE(D3;1;1))+VALOR(EXTRAE(E3;1;1))+VALOR(EXTRAE(F3;1;1))+VALOR(EXTRAE(G3;1;1))+VALOR(EXTRAE(H3;1;1))+VALOR(EXTRAE(I3;1;1))+VALOR(EXTRAE(J3;1;1))+VALOR(EXTRAE(K3;1;1))+VALOR(EXTRAE(L3;1;1)))/10
+
+
+activar impresora hp de la casa
+
+https://oss.hpconnected.com/oss/installs/39965469e3dde7180389980d924141c1/77adbb7faaa44264b6702c718a849f17/steps/30b88bda1bbc44b482679c29d2b456d0/context?url=https%3A%2F%2Fregister.hp.com%3Fcc%3DPE%26application_id%3D810%26PRODUCT_NAME%3DHP%2BDeskJet%2BInk%2BAdvantage%2B4530%26modelId%3DF0V64A%26service_id_cd%3D26040%26prod_serial_id%3DTH5AT3D0S9%26sn_extra%3D0661
+
+001100570240997232
+01105700024099723276
+
+visa usa 2021
+ana paula
+Un nuevo usuario fue creado en el Sistema de Citas e Información de Visas del Departamento de Estado de los Estados Unidos. Para activar su cuenta haga clic en el vínculo de abajo:
+https://ais.usvisa-info.com/es-pe/niv/users/confirmation?confirmation_token=HDxLQYK1_xN_spZgE9R9
+Si usted está teniendo problemas con éste vínculo, usted también puede copiarlo y pegarlo en su navegador de internet.
+Atentamente,
+Servicio de Información y Citas de Visas de CSRA
+
+
+
+NHY$77wsjfun
+
+https://learndigital.withgoogle.com/activate/course/digital-marketing/lesson/24
+
+SELECT distinct codgru,codlin,sublin,corsub,ane002,ane003,desart FROM vtfadb02 into c:\betto\productos.xls type xls
+
+rimac eps numerae
+https://www.rimac.com.pe/PortalWebEmpresa/login.do
+
+google activate
+
+----------------------------------------------------
+python
+
+https://cursospython.j2logo.com/mis-cursos/
+Jef#$%frey20
+
+curso de python en microsoft
+https://www.youtube.com/playlist?list=PLlrxD0HtieHhS8VzuMCfQD4uJ9yne1mE6
+-------------------------------------------------------------------------------
+
+#Hola, para empezar con nuestro proyecto de red social, vamos a utilizar
+#las herramientas que conocemos para ejecutar algunas acciones.
+#
+#Primero, mostraremos un mensaje en pantalla dando la bienvenida al usuario
+#y escribiendo el nombre de la red.
+
+#A continuaciÃ³n preguntaremos algunos datos al usuario para poder construir su perfil,
+#y guardaremos esta informaciÃ³n en variables.
+
+#Finalmente, escribiremos en pantalla todos los datos que hemos recolectado, y permitiremos
+#al usuario escribir un mensaje de estado.
+
+#Te invito a examinar el cÃ³digo, leer los comentarios y comprender los tipos de datos
+#que estamos utilizando en cada caso.
+
+
+#Para conocer un poco mÃ¡s del usuario, vamos a preguntarle algunos datos.
+#Por ejemplo, su aÃ±o de nacimiento, y aprovecharemos este dato descubrir la edad del usuario.
+#Â¿CÃ³mo lo haremos?, usaremos una variable para guardar el resultado del cÃ¡lculo de
+#la edad del usuario. Este es un dato de tipo entero.
+
+#A continuaciÃ³n le preguntaremos al usuario su estatura en metros. Este es un dato de tipo float,
+#y usaremos esta informaciÃ³n para calcular los centimetros
+
+#Finalmente escribiremos en pantalla los datos que hemos recordado del usuario usando print y le solicitaremos
+#que escriba un mensaje para desplegar en pantalla.
+
+############################################################
+# Lo primero que haremos serÃ¡ escribir un mensaje de bienvenida al usuario
+# con el nombre de la red. Puedes modificar este mensajes para que represente el nombre de tu propia red
+# Considera que al escribir """ tambiÃ©n estamos delimitado un string, pero al hacerlo de esta manera,
+# cambios de lÃ­nea que ocurran en el cÃ³digo se considerarÃ¡n como parte del string.
+# Si no estÃ¡s convencido, prueba el funcionamiento reemplazando los delimitadores por "
+
+print("Bienvenido a ... ")
+print("""
+              _                  __
+   ____ ___  (_)  ________  ____/ /
+  / __ `__ \/ /  / ___/ _ \/ __  /
+ / / / / / / /  / /  /  __/ /_/ /
+/_/ /_/ /_/_/  /_/   \___/\__,_/
+
+""")
+
+#Primera interacciÃ³n. Solicitamos al usuario que ingrese su nombre,
+#y lo guardamos en una variable de tipo str
+nombre = input("Para empezar, dime como te llamas. ")
+print()
+print("Hola ", nombre, ", bienvenido a Mi Red")
+print()
+
+#Segunda interacciÃ³n. Solicitamos el ingreso del aÃ±o, y utilizamos este
+#dato para estimar la edad de la persona. Â¿Por quÃ© decimos que solo estamos "estimando" su edad?
+#Â¿QuÃ© ocurre si eliminamos la conversiÃ³n a tipo de dato 'int' de la siguiente lÃ­nea?
+agno = int(input("Para preparar tu perfil, dime en quÃ© aÃ±o naciste. "))
+edad = 2017-agno-1
+print()
+
+#Tercera interacciÃ³n. Solicitamos la estatura, medida en metros.
+#Utilizamos la conversiÃ³n a 'int', y una expresiÃ³n para convertir esto
+#a una medida en metros y centÃ­metros
+estatura = float(input("CuÃ©ntame mÃ¡s de ti, para agregarlo a tu perfil. Â¿CuÃ¡nto mides? DÃ­melo en metros. "))
+estatura_m = int(estatura)
+estatura_cm = int( (estatura - estatura_m)*100 )
+
+#Cuarta interacciÃ³n. Consultamos cuÃ¡ntos amigos tiene el usuario.
+num_amigos = int(input("Muy bien. Finalmente, cuÃ©ntame cuantos amigos tienes. "))
+
+#Con los datos recolectados escribimos en pantalla un texto que resuma los datos que hemos obtenido
+print()
+print("Muy bien,", nombre, ". Entonces podemos crear un perfil con estos datos.")
+print("--------------------------------------------------")
+print("Nombre:  ", nombre)
+print("Edad:    ", edad, "aÃ±os")
+print("Estatura:", estatura_m, "metros y", estatura_cm, "centÃ­metros")
+print("Amigos:  ", num_amigos)
+print("--------------------------------------------------")
+print("Gracias por la informaciÃ³n. Esperamos que disfrutes con Mi Red")
+print()
+
+#Finalmente, solicitamos un mensaje de prueba que sirva para publicar un estado del usuario.
+mensaje = input("Ahora vamos a publicar tu primer mensaje. Â¿QuÃ© piensas hoy? ")
+print()
+print("--------------------------------------------------")
+print(nombre, "dice:", mensaje)
+print("--------------------------------------------------")
+
+#Ahora puedes practicar solicitando mÃ¡s datos al usuario. Solo tienes que usar apropiadamente input() y print()
+#1. Escribe 3 solicitudes de datos al usuario, por ejemplo sexo, numero de telefono, ciudad donde vive,
+#   pais de nacimiento, direccion, etc. Guarda esos datos en variables del tipo, y finalmente escrÃ­belos en pantalla
+#   utilizando print. Puedes agregar todas las lÃ­neas que necesites.
+
+
+
+???????????????????????????????????????????????????????????????????????????????????????????
+hcer loa ejercicios 
+
+Segundo Programa Mi RED
+Ahora que ya sabes hacer un programa con interacción básica para el usuario, vamos a agregarle algunas funcionalidades. Paramos con el programa "Primer Programa Mi RED" de la semana anterior, que te permitía obtener datos del usuario y consultar datos de su perfil, para extender a extenderlo y añadirle nuevas funcionalidades. En esta ocasión, puedes descargar y examinar los contenidos del archivo "MiRedS3-Ciclo.py".
+
+MiRedS3-Ciclos.py
+EJECUTA EL CÓDIGO
+
+Una de las características de los programas con múltiples funcionalidades es que ofrecen un ménù de acciones al usuario. Los menús de opciones permiten que el usuario escoja qué acción realizar. El menú se puede implementar usando un ciclo "while" que funcione mientras el usuario no escoja una acción de salida. Cada vez que el usuario escoja una acción podemos usar una serie de "if/elif/else" para ejecutar distintas secciones de código de acuerdo a lo que el usuario ha solicitado.
+
+En el código encontrarás comentarios que te guiarán para hacer un primer menú para el usuario. En este caso, el menú permite al usuario publicar todos los mensajes que considere y desee hasta que quiera salir voluntariamente del programa.
+
+Ejecuta el código y observa qué ocurre. Cuando hayas comprendido bien el programa, te invitamos a resolver dos ejercicos.
+
+EJERCICIO 1
+
+Este programa termina cada vez que el valor de "escribir_mensaje" es distinto a "S" o a "s". Modifica el programa para que termine ÚNICAMENTE cuando se ingresa "N" o "n". En caso de que ingrese algo distinto, debe solicitar al usuario una nueva opción.
+
+EJERCICIO 2
+
+Modifica este menú para que le permita al usuario realizar más de una acción. Por ejemplo, puedes agregar una acción que permita al usuario modificar su nombre en el perfil.
+
+Cuando ejecutes el código y hayas completado los Ejercicio 1 y 2, responde las preguntas del cuestionario que sigue para comprobar que lo has hecho todo correctamente.
+
+
+
+
+
+
+
+
+def imc(masa, estatura):
+  imc = 0
+  imc=masa/(estatura**2)
+  imc=masa/(estatura**2) # 5 # modifica la variable imc
+  # recuerda que los datos están en las variables masa y estatura
+  return imc
+
+
+
+
+def velocidad(distancia, tiempo):
+  resultado = ""
+  print("velocidad")
+  distancia=0.01 # modifica la variable resultado
+  Tiempo=1 # recuerda que los datos están en las variables distancia y tiempo
+  enmxs = str(distancia*1000/tiempo)
+  enkxh = str(distancia*60/tiempo)
+  resultado = "La velocidad es "+enkxh+" km/h "+enmxs+"m/s"
+  return resultado
+
+
+
+mamacita tomografia
+viernes 29 
+10:30 am
+
+teleconsulta 6 noviembre
+
+
+001101400200263059
+01114000020026305914
+
+
+
+Estimado muy buenos dias. Adjunto la carta de respuesta en febrero de este año de la AFP cuando inicie mis tramites
+del JAO para ver si procedia.
+Actualmente stoy trabajando aun.
+Mi duda es :
+Puedo aportar la diferencia (Aprox 69,000 soles) como aporte voluntario y ya podria pedir el 95.5 % ?
+Pq creo que hay una restriccion sobre el monto de aportes voluntarios.Como figura en letras pequeñas en la parte de abajo de la carta.
+Mi otra duda es si ya que mi esposa es jubilada (ya saco su afp) y en ESSALUD que me pudiera poner como derechohabiente
+quiza yo pueda retirar hasta el 100% de i AFP ?
+
+Le adjunto el voucher del yapq
+
+

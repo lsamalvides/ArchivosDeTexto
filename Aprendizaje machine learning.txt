@@ -1,0 +1,36 @@
+https://www.youtube.com/watch?v=7saDlsTCG5o
+
+https://archive.ics.uci.edu/
+
+https://scikit-learn.org/stable/modules/clustering.html
+
+redes neuronales
+https://www.youtube.com/watch?v=MRIv2IwFTPg
+
+activación de azure
+https://azure.microsoft.com/es-es/solutions/ai#customerstories
+
+https://azure.microsoft.com/es-es/free/students
+https://education.github.com/pack
+
+
+prompt
+estoy iniciando en la creacion de modelos de machine learning, que opciones de recursos tengo disponible dentro de azure
+
+19:26
+quiero publicar una website, que me recomiendas
+
+Creabdo el recurso:
+rg-genai-lab-lennin
+mlw-genai-lab-lennin
+
+portal.azure.com
+
+Para crear el agente
+https://ai.azure.com/
+
+
+ULTIM CLASE
+https://github.com/microsoft/ai-agents-for-beginners
+
+https://www.gartner.com/en/articles/top-technology-trends-2026
